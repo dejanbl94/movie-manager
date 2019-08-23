@@ -7,13 +7,19 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using DataLayer.Data;
 
 namespace MovieManager
 {
     public class Startup
     {
+        // It will make configuring db context in tests easier.
+        public static Action<IConfiguration, DbContextOptionsBuilder, string> ConfigureDbContext = (configuration, options, connection)
+                                                                        => options.UseSqlServer(configuration.GetConnectionString(connection));
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -31,7 +37,14 @@ namespace MovieManager
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            // Get the current connection string from appsettings.json.
+            string connection = Configuration.GetConnectionString("DefaultConnection");
 
+            // Read current environment from environment variables.
+            if (Configuration["ENVIRONMENT"] == "Development")
+            {
+                services.AddDbContext<FilmManagerDbContext>(options => ConfigureDbContext(Configuration, options, connection));
+            }
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entities.Models
+namespace DataLayer.Models
 {
     public class Category
     {

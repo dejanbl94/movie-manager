@@ -13,7 +13,7 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\Entities\Entities.csproj" />
+    <ProjectReference Include="..\Entities\DataLayer.csproj" />
   </ItemGroup>
 
 </Project>

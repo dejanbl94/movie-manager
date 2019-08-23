@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entities.Models
+namespace DataLayer.Models
 {
     // This is a linking table, EF Core needs to have these to implement many-to-many relationships, thus we have TWO, one-to-many relationships.
     public class FilmCategory
