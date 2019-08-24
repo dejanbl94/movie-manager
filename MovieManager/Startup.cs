@@ -17,8 +17,8 @@ namespace MovieManager
     public class Startup
     {
         // It will make configuring db context in tests easier.
-        public static Action<IConfiguration, DbContextOptionsBuilder, string> ConfigureDbContext = (configuration, options, connection)
-                                                                        => options.UseSqlServer(configuration.GetConnectionString(connection));
+        public static Action<IConfiguration, DbContextOptionsBuilder> ConfigureDbContext = (configuration, options)
+                                                                        => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
 
         public Startup(IConfiguration configuration)
         {
@@ -37,13 +37,10 @@ namespace MovieManager
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            // Get the current connection string from appsettings.json.
-            string connection = Configuration.GetConnectionString("DefaultConnection");
-
             // Read current environment from environment variables.
             if (Configuration["ENVIRONMENT"] == "Development")
             {
-                services.AddDbContext<FilmManagerDbContext>(options => ConfigureDbContext(Configuration, options, connection));
+                services.AddDbContext<FilmManagerDbContext>(options => ConfigureDbContext(Configuration, options));
             }
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
