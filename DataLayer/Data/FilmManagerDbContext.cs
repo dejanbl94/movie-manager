@@ -21,7 +21,7 @@ namespace DataLayer.Data
         public FilmManagerDbContext(DbContextOptions<FilmManagerDbContext> options)
                                  : base(options)
         {
-
+            // Empty.
         }
        
         protected override void OnModelCreating(ModelBuilder builder)
