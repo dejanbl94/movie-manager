@@ -15,6 +15,7 @@ namespace DataLayer.Models
         public int Length { get; set; }
 
         // Relationships
+        // We are returning as general type as possible, ICollection is more general than IList but as opposed to IEnumerable has a Count property as well.
         public ICollection<FilmActor> ActorsLink { get; set; }
         public ICollection<FilmCategory> CategoriesLink { get; set; }
     }

@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using DataLayer.Data;
+using DataLayer.Models.Identity;
 
 namespace MovieManager
 {
@@ -37,6 +34,11 @@ namespace MovieManager
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            // Configure our IdentityContext and add it below to the pipeline with app.UseAuthentication
+            services.AddIdentity<AppUser, AppRole>(options =>
+            options.User.RequireUniqueEmail = true)
+                                                    .AddEntityFrameworkStores<FilmManagerDbContext>();
+
             // Read current environment from environment variables.
             if (Configuration["ENVIRONMENT"] == "Development")
             {
@@ -62,6 +64,8 @@ namespace MovieManager
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
