@@ -33,6 +33,13 @@ namespace MovieManager.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Logout()
+        {
+            await signInManager.SignOutAsync();
+
+            return RedirectToAction("Index", "Home");
+        }
+
         public async Task<IActionResult> Register()
         {
             try
