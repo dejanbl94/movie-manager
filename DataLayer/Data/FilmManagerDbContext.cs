@@ -21,7 +21,7 @@ namespace DataLayer.Data
         public FilmManagerDbContext(DbContextOptions<FilmManagerDbContext> options)
                                  : base(options)
         {
-            // Empty.
+            // Empty constructor.
         }
        
         protected override void OnModelCreating(ModelBuilder builder)
@@ -31,6 +31,12 @@ namespace DataLayer.Data
             // Tell EF Core about the Many-to-Many table keys.
             builder.Entity<FilmActor>().HasKey(x => new { x.FilmId, x.ActorId });
             builder.Entity<FilmCategory>().HasKey(x => new { x.FilmId, x.CategoryId });
+
+            // One-to-many relationship Film-Review
+            builder.Entity<Film>()
+                .HasMany(x => x.Reviews)
+                .WithOne(y => y.Film)
+                .OnDelete(DeleteBehavior.Cascade); // Setting On Cascade DELETE action, so our relationship is not optional, and all dependants will be deleted.
         }
 
     }

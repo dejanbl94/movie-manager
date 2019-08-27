@@ -13,5 +13,8 @@ namespace DataLayer.Models
         public int FilmId { get; set; }
         // Link to user identity table to show a review by user. Maybe replace this with the foreign key to the Users table.
         // public int ReviewedByUserId { get; set; }
+
+        // One-to-many relation to the Film table
+        public Film Film { get; set; }
     }
 }
