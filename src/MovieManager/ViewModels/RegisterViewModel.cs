@@ -20,6 +20,7 @@ namespace MovieManager.ViewModels
         public string Password { get; set; }
 
         [Required]
+        [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The passwords does not match!")]
         public string ConfirmPassword { get; set; }
