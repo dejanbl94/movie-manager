@@ -7,23 +7,27 @@
 <br />
 <div class="row">
     <div class="col-md-4 navbar-nav ml-auto">
-        <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post" style="width:350px " >
+        <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post" style="width:350px ">
             <h5>Create a new account </h5>
-            <hr/>
+            <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">              
+                <input asp-for="Username" class="form-control" placeholder="Name" autocomplete="off" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
             <div class="form-group">
-                <label asp-for="Email" style="width:185px; display:inline-block;"></label>
-                <input asp-for="Email" class="form-control" />
+              
+                <input asp-for="Email" class="form-control" placeholder="Email" autocomplete="off" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Password" style="width:185px; display:inline-block;"></label>
-                <input asp-for="Password" class="form-control" />
+           
+                <input asp-for="Password" class="form-control" placeholder="Password" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ConfirmPassword" style="width:185px; display:inline-block;"></label>
-                <input asp-for="ConfirmPassword" class="form-control" />
+         
+                <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm Password" />
                 <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
             </div>
             <button type="submit" class="btn btn-outline-success">Register</button>
