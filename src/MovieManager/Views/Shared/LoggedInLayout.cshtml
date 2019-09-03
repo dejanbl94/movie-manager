@@ -1,9 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using DataLayer.Models.Identity
 
+
 @model LoginViewModel
 @inject SignInManager<AppUser> SignInManager
-
+@inject  UserManager<AppUser> UserManager
 
 <!----><!DOCTYPE html>
 <html>
@@ -30,22 +31,17 @@
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 ">
                 <div class="d-flex justify-content-between w-100 mx-4 ml-6 align-middle">
                     <div class="" id="logo ">
-                        <a class="navbar-brand " style="font-size:30px; font-weight:100;" asp-controller="Home" asp-action="Index">
+                        <a class="navbar-brand " style="font-size:30px; font-weight:100;" asp-area="">
                             <span style="color:#D09379; font-weight:400; font-size:25px;">movie</span>manager
                         </a>
                     </div>
-                    <form class="form-inline" asp-area="" asp-controller="Home" asp-action="Login">
-                        <input asp-for="Email" class="form-control form-control-sm m-sm-1" style="width:200px !important" placeholder="Email" autocomplete="off" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                        <input asp-for="Password" class="form-control form-control-sm m-sm-1" placeholder="Password" autocomplete="off" />
-                        <span asp-validation-for="Password" class="text-danger "></span>
-                        <button class="btn btn-dark m-sm-1 btn-sm" style="background-color:#684B3E !important">Sign in</button>
+                    <form class="form-inline" asp-controller="Home" asp-action="Logout" method="post">
+                        <div style="float:left; padding-left:20px;">
+                            <button type="submit" class="btn btn-dark m-sm-1 btn-sm" style="background-color:#684B3E !important">Log out, @this.User.Identity.Name</button>
+                        </div>
                     </form>
                 </div>
             </nav>
-        </div>
-        <div style="width:100%">
-            @{ await Html.RenderPartialAsync("_RegisterPartial"); }
         </div>
     </header>
 

@@ -1,5 +1,10 @@
-﻿
-@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@using Microsoft.AspNetCore.Identity
+@using DataLayer.Models.Identity
 
+@model LoginViewModel
+@inject SignInManager<AppUser> SignInManager
+
+
+@{
+    Layout = (string)ViewData["Layout"] ?? "_Layout";
+}

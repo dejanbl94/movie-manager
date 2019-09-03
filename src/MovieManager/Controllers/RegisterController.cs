@@ -42,12 +42,19 @@ namespace MovieManager.Controllers
                 var result = await userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    TempData["Success"] = "You successfully registered!";
                     await signInManager.SignInAsync(user, isPersistent: false);
+                    return View("~/Views/Home/Index.cshtml");
+                    // return RedirectToLocal(returnUrl);
+                }
+                else
+                {
+                    ViewData["Error"] = "Registration failed, please try again.";
+                    AddErrors(result);
                     return RedirectToLocal(returnUrl);
                 }
-                AddErrors(result);
             }
-            return View();
+            return View("~/Views/Home/Index.cshtml");
         }
 
         private void AddErrors(IdentityResult result)

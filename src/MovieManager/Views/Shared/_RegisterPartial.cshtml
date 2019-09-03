@@ -1,0 +1,49 @@
+﻿@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<br />
+<div class="row d-flex justify-content-end mr-5">
+    <div class="mx-5 ">
+        <form id="registerForm" asp-route-returnUrl="@ViewData["ReturnUrl"]" asp-controller="Register" asp-action="Register" method="post" style="width:350px" >
+            <h5>Try us? Create a free account! </h5>
+            <hr />
+            <div class="form-group">
+                <input id="userBox" asp-for="Username" class="form-control form-control-sm" placeholder="Name" autocomplete="off" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input id="emailBox" asp-for="Email" class="form-control form-control-sm" placeholder="Email" autocomplete="off" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Password" class="form-control form-control-sm" placeholder="Password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="ConfirmPassword" class="form-control form-control-sm" placeholder="Confirm Password" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-warning btn-group-lg" onclick="resetForm()">Sign Up</button>
+            <div class="form-group">
+                @if (TempData["Success"] != null)
+                {
+                    <br />
+                    <div class="text-success">
+                        <p>@TempData["Success"].ToString()</p>
+                    </div>
+                }
+                @if (ViewData["Error"] != null)
+                {
+                    <br />
+                    <div class="text-danger">
+                        <p>@ViewData["Error"].ToString()</p>
+                    </div>
+                }
+            </div>
+        </form>
+    </div>
+</div>
+
