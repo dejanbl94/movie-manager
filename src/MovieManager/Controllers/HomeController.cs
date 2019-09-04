@@ -42,24 +42,22 @@ namespace MovieManager.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-              
-                    var user = await userManager.FindByEmailAsync(model.Email);
-                    var result = await signInManager.PasswordSignInAsync(user.UserName, model.Password, isPersistent: true, lockoutOnFailure: false);
+                    var user = await userManager.FindByEmailAsync(model.LoginEmail);
+                    var result = await signInManager.PasswordSignInAsync(user.UserName, model.LoginPassword, isPersistent: true, lockoutOnFailure: false);
 
                     if (result.Succeeded)
                     {
-                    //return RedirectToAction()
-                    //return RedirectToLocal(returnUrl);
-                    //ViewData["Layout"] = "~/Views/Shared/LoggedInLayout.cshtml";
                         return RedirectToAction("Index");
                     }
                     else
                     {
-                        ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                        return RedirectToAction("/Home/Index");
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    // return this.View();
+                    return RedirectToAction("Index");
                     }
                 }
-            return View(model);
+            TempData["Failed"] = "Login failed! Please try again";
+            return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
         // All methods related to Registration or Login have [AlllowAnonymous] attribute so that only logged in users can access them.
@@ -73,8 +71,6 @@ namespace MovieManager.Controllers
                 ViewData["Layout"] = "~/Views/Shared/LoggedInLayout.cshtml";
                 return View();
             }
-
-            // ViewData["ReturnUrl"] = returnUrl;
             return View("~/Views/Home/Index.cshtml");
         }
 
@@ -92,6 +88,7 @@ namespace MovieManager.Controllers
         {
             return View();
         }
+
 
         public IActionResult Privacy()
         {

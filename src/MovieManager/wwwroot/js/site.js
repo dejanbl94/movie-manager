@@ -5,9 +5,10 @@
 
 // TODO: Reset register form after sign up.
 
-    function resetForm()
+/*    function resetForm()
     {
-        document.getElementsById('userBox').reset();
-        document.getElementById('emailBox').reset();
-        console.debug('test');
-}
+        console.log(5 + 6);
+        document.getElementById("registerForm").reset();
+    }
+
+*/

@@ -23,14 +23,6 @@ namespace MovieManager.Controllers
         }
         // Methods related to Registration [AlllowAnonymous] attribute so that only logged in users can access them.
 
-        [HttpGet]
-        [AllowAnonymous]
-        public IActionResult Register(string returnUrl = null)
-        {
-            ViewData["ReturnUrl"] = returnUrl;
-            return View();
-        }
-
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -43,9 +35,7 @@ namespace MovieManager.Controllers
                 if (result.Succeeded)
                 {
                     TempData["Success"] = "You successfully registered!";
-                    await signInManager.SignInAsync(user, isPersistent: false);
-                    return View("~/Views/Home/Index.cshtml");
-                    // return RedirectToLocal(returnUrl);
+                    return RedirectToAction(nameof(HomeController.Index),"Home");
                 }
                 else
                 {

@@ -1,5 +1,6 @@
 ﻿@model RegisterViewModel
 
+
 @{
     ViewData["Title"] = "Register";
 }
@@ -7,7 +8,7 @@
 <br />
 <div class="row d-flex justify-content-end mr-5">
     <div class="mx-5 ">
-        <form id="registerForm" asp-route-returnUrl="@ViewData["ReturnUrl"]" asp-controller="Register" asp-action="Register" method="post" style="width:350px" >
+        <form asp-controller="Register" asp-action="Register" method="post" style="width:350px">
             <h5>Try us? Create a free account! </h5>
             <hr />
             <div class="form-group">
@@ -26,7 +27,7 @@
                 <input asp-for="ConfirmPassword" class="form-control form-control-sm" placeholder="Confirm Password" />
                 <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-warning btn-group-lg" onclick="resetForm()">Sign Up</button>
+            <button type="submit" class="btn btn-warning btn-group-lg" id="registerBtn">Sign Up</button>
             <div class="form-group">
                 @if (TempData["Success"] != null)
                 {
@@ -46,4 +47,13 @@
         </form>
     </div>
 </div>
+<!--<script>
 
+    var userBox = document.getElementById("userBox");
+    var emailBox = document.getElementById("emailBox");
+    var registerBtn = document.getElementById("registerBtn");
+
+    registerBtn.addEventListener("click", () => { userBox.value = ""; emailBox.value = ""; })
+
+</script>
+-->
