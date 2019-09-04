@@ -7,6 +7,10 @@ a.navbar-brand {
     word-break: break-all;
 }
 
+.inner-container {
+    position: relative;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {

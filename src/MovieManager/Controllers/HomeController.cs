@@ -37,12 +37,15 @@ namespace MovieManager.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
-            ViewData["ReturnUrl"] = returnUrl;
+            // TODO: Try to implement return url per this example https://github.com/ra1han/aspnet-core-identity/blob/master/Demo%202/ASPNetCoreIdentityDemo/ASPNetCoreIdentityDemo/Controllers/AccountController.cs
             if (ModelState.IsValid)
             {
-                    var user = await userManager.FindByEmailAsync(model.LoginEmail);
+                var user = await userManager.FindByEmailAsync(model.LoginEmail);
+
+                if (user != null)
+                {
                     var result = await signInManager.PasswordSignInAsync(user.UserName, model.LoginPassword, isPersistent: true, lockoutOnFailure: false);
 
                     if (result.Succeeded)
@@ -51,13 +54,19 @@ namespace MovieManager.Controllers
                     }
                     else
                     {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    // return this.View();
-                    return RedirectToAction("Index");
+                        ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                        TempData["Login"] = "Invalid username or password.";
+                        return RedirectToAction("Index");
                     }
                 }
-            TempData["Failed"] = "Login failed! Please try again";
-            return RedirectToAction(nameof(HomeController.Index), "Home");
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    TempData["Login"] = "Invalid username or password.";
+                    return RedirectToAction("Index");
+                }
+            }
+            return View("~/Views/Home/Index.cshtml");
         }
 
         // All methods related to Registration or Login have [AlllowAnonymous] attribute so that only logged in users can access them.
@@ -83,12 +92,11 @@ namespace MovieManager.Controllers
 
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
-       
+
         public IActionResult Index()
         {
             return View();
         }
-
 
         public IActionResult Privacy()
         {
@@ -101,16 +109,16 @@ namespace MovieManager.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-       /* private IActionResult RedirectToLocal(string returnUrl)
-        {
-            if (Url.IsLocalUrl(returnUrl))
-            {
-                return Redirect(returnUrl);
-            }
-            else
-            {
-                return RedirectToAction(nameof(HomeController.Index), "Home");
-            }
-        }*/
+        /* private IActionResult RedirectToLocal(string returnUrl)
+         {
+             if (Url.IsLocalUrl(returnUrl))
+             {
+                 return Redirect(returnUrl);
+             }
+             else
+             {
+                 return RedirectToAction(nameof(HomeController.Index), "Home");
+             }
+         }*/
     }
 }

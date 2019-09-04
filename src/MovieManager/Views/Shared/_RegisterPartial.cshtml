@@ -12,11 +12,11 @@
             <h5>Try us? Create a free account! </h5>
             <hr />
             <div class="form-group">
-                <input id="userBox" asp-for="Username" class="form-control form-control-sm" placeholder="Name" autocomplete="off" />
+                <input asp-for="Username" class="form-control form-control-sm" placeholder="Name" autocomplete="off" />
                 <span asp-validation-for="Username" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input id="emailBox" asp-for="Email" class="form-control form-control-sm" placeholder="Email" autocomplete="off" />
+                <input asp-for="Email" class="form-control form-control-sm" placeholder="Email" autocomplete="off" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -47,13 +47,3 @@
         </form>
     </div>
 </div>
-<!--<script>
-
-    var userBox = document.getElementById("userBox");
-    var emailBox = document.getElementById("emailBox");
-    var registerBtn = document.getElementById("registerBtn");
-
-    registerBtn.addEventListener("click", () => { userBox.value = ""; emailBox.value = ""; })
-
-</script>
--->

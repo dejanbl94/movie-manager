@@ -32,10 +32,11 @@ namespace MovieManager.Controllers
             {
                 var user = new AppUser { UserName = model.Username, Email = model.Email };
                 var result = await userManager.CreateAsync(user, model.Password);
+
                 if (result.Succeeded)
                 {
                     TempData["Success"] = "You successfully registered!";
-                    return RedirectToAction(nameof(HomeController.Index),"Home");
+                    return RedirectToAction(nameof(HomeController.Index), "Home");
                 }
                 else
                 {

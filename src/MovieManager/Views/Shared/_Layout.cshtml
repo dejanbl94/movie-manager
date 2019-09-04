@@ -4,7 +4,6 @@
 @model LoginViewModel
 @inject SignInManager<AppUser> SignInManager
 
-
 <!----><!DOCTYPE html>
 <html>
 <head>
@@ -35,19 +34,38 @@
                         </a>
                     </div>
                     <form class="form-inline" asp-area="" asp-controller="Home" asp-action="Login">
-                        <input asp-for="LoginEmail" class="form-control form-control-sm m-sm-1" style="width:200px !important" placeholder="Email" autocomplete="off" />
-                        <span asp-validation-for="LoginEmail" class="text-danger"></span>
-                        <input asp-for="LoginPassword" class="form-control form-control-sm m-sm-1" placeholder="Password" autocomplete="off" />
-                        <span asp-validation-for="LoginPassword" class="text-danger "></span>
+                        <div>
+                            <input asp-for="LoginEmail" class="form-control form-control-sm m-sm-1" style="width:200px !important" placeholder="Email" autocomplete="off" required />
+                        </div>
+                        <div>
+                            <input asp-for="LoginPassword" class="form-control form-control-sm m-sm-1" placeholder="Password" autocomplete="off" required />
+                        </div>
                         <button class="btn btn-dark m-sm-1 btn-sm" style="background-color:#684B3E !important">Sign in</button>
                     </form>
                 </div>
             </nav>
         </div>
         <div style="width:100%">
-            @{ await Html.RenderPartialAsync("_RegisterPartial"); }
+            @{
+                await Html.RenderPartialAsync("_RegisterPartial");
+            }
         </div>
     </header>
+    <!--Div showing all errors-->
+    @if(TempData["Login"] != null)
+    {
+    <div style="position:absolute; display:none; left:50%; top:80%;" id="errorLog">
+        <div style="position:relative; left:-50%">
+            <div class="text-danger" style="font-size:small; font-weight:600">
+                <span asp-validation-for="LoginEmail">
+                </span>
+                <span asp-validation-for="LoginPassword">
+                </span>
+                @TempData["Login"].ToString()
+            </div>
+        </div>
+    </div>
+    }
 
     <div class="">
         <partial name="_CookieConsentPartial" />

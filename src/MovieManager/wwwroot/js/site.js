@@ -12,3 +12,7 @@
     }
 
 */
+
+// Fade in login error message.
+
+$("#errorLog").fadeIn(2000).delay(5000).fadeOut(2000);
