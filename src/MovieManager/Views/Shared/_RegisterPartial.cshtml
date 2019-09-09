@@ -5,45 +5,61 @@
     ViewData["Title"] = "Register";
 }
 
-<br />
-<div class="row d-flex justify-content-end mr-5">
-    <div class="mx-5 ">
-        <form asp-controller="Register" asp-action="Register" method="post" style="width:350px">
-            <h5>Try us? Create a free account! </h5>
-            <hr />
-            <div class="form-group">
-                <input asp-for="Username" class="form-control form-control-sm" placeholder="Name" autocomplete="off" />
-                <span asp-validation-for="Username" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input asp-for="Email" class="form-control form-control-sm" placeholder="Email" autocomplete="off" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input asp-for="Password" class="form-control form-control-sm" placeholder="Password" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input asp-for="ConfirmPassword" class="form-control form-control-sm" placeholder="Confirm Password" />
-                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-            </div>
-            <button type="submit" class="btn btn-warning btn-group-lg" id="registerBtn">Sign Up</button>
-            <div class="form-group">
-                @if (TempData["Success"] != null)
-                {
-                    <br />
-                    <div class="text-success">
-                        <p>@TempData["Success"].ToString()</p>
+<div id="registerForm" style="visibility:hidden;">
+    <!-- <div id="logoImage" style="background-image: url('https://i.postimg.cc/qMFXkDsY/mov.png'); float:left; background-repeat: no-repeat; max-height:800px; width:1024px; margin: 50px 0px 0px 50px; overflow:hidden; z-index:-1"></div>-->
+    <div class="row h-100">
+        <div class="col-sm-12 my-auto">
+            <div class="card card-block w-50 mx-auto p-5" style="background-color:#f3f1ef; opacity:0.8">
+                <form asp-controller="Register" asp-action="Register" method="post">
+                    <h5>Try us? Create a free account! </h5>
+                    <hr />
+                    <div class="form-group">
+                        <input asp-for="Username" class="form-control form-control-sm" placeholder="Name" autocomplete="off" />
+                        <span asp-validation-for="Username" class="text-danger" style="font-size:small"></span>
                     </div>
-                }
-                @if (ViewData["Error"] != null)
-                {
-                    <br />
-                    <div class="text-danger">
-                        <p>@ViewData["Error"].ToString()</p>
+                    <div class="form-group">
+                        <input asp-for="Email" class="form-control form-control-sm" placeholder="Email" autocomplete="off" />
+                        <span asp-validation-for="Email" class="text-danger" style="font-size:small"></span>
                     </div>
-                }
+                    <div class="form-group">
+                        <input asp-for="Password" class="form-control form-control-sm" placeholder="Password" />
+                        <span asp-validation-for="Password" class="text-danger" style="font-size:small"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="ConfirmPassword" class="form-control form-control-sm" placeholder="Confirm Password" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger" style="font-size:small"></span>
+                    </div>
+                    <button type="submit" class="btn btn-warning btn-group-lg" id="registerBtn">Sign Up</button>
+
+                    @if (TempData["DuplicateUsername"] != null)
+                    {
+                        <div class="form-group m-0">
+                            <div style="height:10px"></div>
+                            <div class="text-danger" style="font-size:small; font-weight:500">
+                                <p>@TempData["DuplicateUsername"].ToString()</p>
+                            </div>
+                        </div>
+                    }
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="form-group m-0">
+                            <div style="height:10px"></div>
+                            <div class="text-success" style="font-size:small; font-weight:500">
+                                <p>@TempData["Success"].ToString()</p>
+                            </div>
+                        </div>
+                    }
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="form-group m-0">
+                            <div style="height:10px"></div>
+                            <div class="text-danger" style="font-size:small; font-weight:500">
+                                <p>@TempData["Error"].ToString()</p>
+                            </div>
+                        </div>
+                    }
+                </form>
             </div>
-        </form>
+        </div>
     </div>
 </div>

@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MovieManager</title>
+    <title>@ViewData["Title"]MovieManager</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -23,10 +23,10 @@
     </environment>
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
-    <header>
-        <div style="width:100%" class="align-middle shadow-sm">
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 ">
+<body style="background-color:#ffffff;  background-image: url('https://spinningtopsmuseum.files.wordpress.com/2012/01/captura-de-ecrc3a3-2012-01-02-11-32-40.png'); background-size:cover; background-repeat:repeat">
+    <header id="header">
+        <div style="width:100%;" class="align-middle shadow-sm">
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow" style="background-color:#f6f5f3">
                 <div class="d-flex justify-content-between w-100 mx-4 ml-6 align-middle">
                     <div class="" id="logo ">
                         <a class="navbar-brand " style="font-size:30px; font-weight:100;" asp-controller="Home" asp-action="Index">
@@ -40,23 +40,24 @@
                         <div>
                             <input asp-for="LoginPassword" class="form-control form-control-sm m-sm-1" placeholder="Password" autocomplete="off" required />
                         </div>
-                        <button class="btn btn-dark m-sm-1 btn-sm" style="background-color:#684B3E !important">Sign in</button>
+                        <button class="btn btn-dark m-sm-1 btn-sm" style="background-color:#775d51 !important">Sign in</button>
                     </form>
                 </div>
             </nav>
         </div>
-        <div style="width:100%">
+    </header>
+        <div class="container">
             @{
                 await Html.RenderPartialAsync("_RegisterPartial");
             }
         </div>
-    </header>
+ 
     <!--Div showing all errors-->
     @if(TempData["Login"] != null)
     {
     <div style="position:absolute; display:none; left:50%; top:80%;" id="errorLog">
         <div style="position:relative; left:-50%">
-            <div class="text-danger" style="font-size:small; font-weight:600">
+            <div class="text-danger" style="font-size:small; font-weight:500">
                 <span asp-validation-for="LoginEmail">
                 </span>
                 <span asp-validation-for="LoginPassword">
@@ -69,13 +70,13 @@
 
     <div class="">
         <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-3">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
+    <footer id="footer" class="border-top footer text-muted"  style="background-color:#f6f5f3; box-sizing:content-box;">
+        <div class="container " style="font-size:small; margin-left:2%" >
             &copy; 2019 - MovieManager - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
