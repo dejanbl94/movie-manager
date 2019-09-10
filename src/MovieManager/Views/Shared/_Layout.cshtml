@@ -23,8 +23,8 @@
     </environment>
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body style="background-color:#ffffff;  background-image: url('https://spinningtopsmuseum.files.wordpress.com/2012/01/captura-de-ecrc3a3-2012-01-02-11-32-40.png'); background-size:cover; background-repeat:repeat">
-    <header id="header">
+<body style="background-color:#ffffff;  background-image: url('http://getwallpapers.com/wallpaper/full/a/6/5/1109764-new-inception-wallpaper-1920x1080.jpg'); background-size:cover; background-repeat:repeat">
+    <header id="header" style="opacity:0.95">
         <div style="width:100%;" class="align-middle shadow-sm">
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow" style="background-color:#f6f5f3">
                 <div class="d-flex justify-content-between w-100 mx-4 ml-6 align-middle">
@@ -35,7 +35,7 @@
                     </div>
                     <form class="form-inline" asp-area="" asp-controller="Home" asp-action="Login">
                         <div>
-                            <input asp-for="LoginEmail" class="form-control form-control-sm m-sm-1" style="width:200px !important" placeholder="Email" autocomplete="off" required />
+                            <input asp-for="LoginEmail" class="form-control form-control-sm m-sm-1 " style="width:200px !important" placeholder="Email" autocomplete="off" required />
                         </div>
                         <div>
                             <input asp-for="LoginPassword" class="form-control form-control-sm m-sm-1" placeholder="Password" autocomplete="off" required />
@@ -46,26 +46,26 @@
             </nav>
         </div>
     </header>
-        <div class="container">
-            @{
-                await Html.RenderPartialAsync("_RegisterPartial");
-            }
-        </div>
- 
+    <div class="container">
+        @{
+            await Html.RenderPartialAsync("_RegisterPartial");
+        }
+    </div>
+
     <!--Div showing all errors-->
-    @if(TempData["Login"] != null)
+    @if (TempData["Login"] != null)
     {
-    <div style="position:absolute; display:none; left:50%; top:80%;" id="errorLog">
-        <div style="position:relative; left:-50%">
-            <div class="text-danger" style="font-size:small; font-weight:500">
-                <span asp-validation-for="LoginEmail">
-                </span>
-                <span asp-validation-for="LoginPassword">
-                </span>
-                @TempData["Login"].ToString()
+        <div style="position:absolute; display:none; left:50%; top:80%;" id="errorLog">
+            <div style="position:relative; left:-50%">
+                <div class="text-danger" style="font-size:medium; font-weight:500">
+                    <span asp-validation-for="LoginEmail">
+                    </span>
+                    <span asp-validation-for="LoginPassword">
+                    </span>
+                    @TempData["Login"].ToString()
+                </div>
             </div>
         </div>
-    </div>
     }
 
     <div class="">
@@ -75,9 +75,9 @@
         </main>
     </div>
 
-    <footer id="footer" class="border-top footer text-muted"  style="background-color:#f6f5f3; box-sizing:content-box;">
-        <div class="container " style="font-size:small; margin-left:2%" >
-            &copy; 2019 - MovieManager - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer id="footer" class="border-top footer text-muted" style="background-color:#f6f5f3; box-sizing:content-box; opacity:0.8;">
+        <div class="container " style="font-size:small; margin-left:2%; ">
+            &copy; 2019 - MovieManager | <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
 

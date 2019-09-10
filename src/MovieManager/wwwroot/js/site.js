@@ -13,7 +13,6 @@ $("#logoImage").height(window.innerHeight - 0.15 * window.innerHeight);
 window.addEventListener("resize", () => $("#logoImage").height(window.innerHeight - 0.15 * window.innerHeight));
 */
 
-
 // Vertical centering of register form
 
 function centerRegisterForm() {
@@ -24,7 +23,7 @@ function centerRegisterForm() {
 
     var emptySpaceHeight = window.innerHeight - headerHeight - footerHeight;
 
-    var x = (emptySpaceHeight - registerFormHeight) / 2;
+    var x = (emptySpaceHeight - registerFormHeight) / 2.4;
 
     document.getElementById("registerForm").style.marginTop = x + "px";
 

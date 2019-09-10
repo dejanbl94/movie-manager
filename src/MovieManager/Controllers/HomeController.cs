@@ -66,6 +66,7 @@ namespace MovieManager.Controllers
                     return RedirectToAction("Index");
                 }
             }
+            TempData["Login"] = "Invalid username or password.";
             return View("~/Views/Home/Index.cshtml");
         }
 

@@ -9,7 +9,7 @@
     <!-- <div id="logoImage" style="background-image: url('https://i.postimg.cc/qMFXkDsY/mov.png'); float:left; background-repeat: no-repeat; max-height:800px; width:1024px; margin: 50px 0px 0px 50px; overflow:hidden; z-index:-1"></div>-->
     <div class="row h-100">
         <div class="col-sm-12 my-auto">
-            <div class="card card-block w-50 mx-auto p-5" style="background-color:#f3f1ef; opacity:0.8">
+            <div class="card card-block w-50 mx-auto p-5" style="background-color:#f3f1ef; opacity:0.85">
                 <form asp-controller="Register" asp-action="Register" method="post">
                     <h5>Try us? Create a free account! </h5>
                     <hr />
@@ -29,7 +29,16 @@
                         <input asp-for="ConfirmPassword" class="form-control form-control-sm" placeholder="Confirm Password" />
                         <span asp-validation-for="ConfirmPassword" class="text-danger" style="font-size:small"></span>
                     </div>
-                    <button type="submit" class="btn btn-warning btn-group-lg" id="registerBtn">Sign Up</button>
+                    <div class="d-flex flex-row justify-content-between">
+                        <div class="col-md-3  p-0">
+                            <button type="submit" class="btn btn-warning btn-group-lg" id="registerBtn">Sign Up</button>
+                        </div>
+                        <div class="col-md-9 p-0">
+                            <p style="font-size:10px">
+                                By clicking “Sign up” I agree to the Movie Manager Terms of Service and confirm that I am at least 13 years old.
+                            </p>
+                        </div>
+                    </div>
 
                     @if (TempData["DuplicateUsername"] != null)
                     {
