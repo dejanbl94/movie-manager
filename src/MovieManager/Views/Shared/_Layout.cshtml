@@ -21,30 +21,24 @@
               crossorigin="anonymous"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
     </environment>
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/site.css" type="text/css" />
 </head>
-<body style="background-color:#ffffff;  background-image: url('http://getwallpapers.com/wallpaper/full/a/6/5/1109764-new-inception-wallpaper-1920x1080.jpg'); background-size:cover; background-repeat:repeat">
-    <header id="header" style="opacity:0.95">
-        <div style="width:100%;" class="align-middle shadow-sm">
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow" style="background-color:#f6f5f3">
+<body>
+    <header class="align-middle shadow-sm w-100" id="header">
+            <nav id="navbar" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow">
                 <div class="d-flex justify-content-between w-100 mx-4 ml-6 align-middle">
-                    <div class="" id="logo ">
-                        <a class="navbar-brand " style="font-size:30px; font-weight:100;" asp-controller="Home" asp-action="Index">
-                            <span style="color:#D09379; font-weight:400; font-size:25px;">movie</span>manager
+                    <div id="logo ">
+                        <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                            <span id="logoPart">movie</span>manager
                         </a>
                     </div>
                     <form class="form-inline" asp-area="" asp-controller="Home" asp-action="Login">
-                        <div>
-                            <input asp-for="LoginEmail" class="form-control form-control-sm m-sm-1 " style="width:200px !important" placeholder="Email" autocomplete="off" required />
-                        </div>
-                        <div>
-                            <input asp-for="LoginPassword" class="form-control form-control-sm m-sm-1" placeholder="Password" autocomplete="off" required />
-                        </div>
-                        <button class="btn btn-dark m-sm-1 btn-sm" style="background-color:#775d51 !important">Sign in</button>
+                            <input asp-for="LoginEmail" class="loginInput form-control form-control-sm m-sm-1" placeholder="Email" autocomplete="off" required />
+                            <input asp-for="LoginPassword" class="loginInput form-control form-control-sm m-sm-1"  placeholder="Password" autocomplete="off" required />
+                        <button class="btn btn-dark m-sm-1 btn-sm">Sign in</button>
                     </form>
                 </div>
             </nav>
-        </div>
     </header>
     <div class="container">
         @{
@@ -55,9 +49,9 @@
     <!--Div showing all errors-->
     @if (TempData["Login"] != null)
     {
-        <div style="position:absolute; display:none; left:50%; top:80%;" id="errorLog">
-            <div style="position:relative; left:-50%">
-                <div class="text-danger" style="font-size:medium; font-weight:500">
+        <div id="loginError">
+            <div id="loginErrorInnerDiv">
+                <div class="text-danger">
                     <span asp-validation-for="LoginEmail">
                     </span>
                     <span asp-validation-for="LoginPassword">
@@ -75,8 +69,8 @@
         </main>
     </div>
 
-    <footer id="footer" class="border-top footer text-muted" style="background-color:#f6f5f3; box-sizing:content-box; opacity:0.8;">
-        <div class="container " style="font-size:small; margin-left:2%; ">
+    <footer id="footer" class="border-top footer text-muted">
+        <div id="footerContainer" class="container">
             &copy; 2019 - MovieManager | <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>

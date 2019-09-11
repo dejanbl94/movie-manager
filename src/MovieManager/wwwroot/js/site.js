@@ -31,6 +31,12 @@ function centerRegisterForm() {
 
 }
 
+// Blue background image when focus on register form
+setInterval(() => {
+    if (document.getElementById("registerForm").contains(document.activeElement))
+        $("#blurDiv").addClass("blured");
+    else $("#blurDiv").removeClass("blured");
+}, 50);
 
 
 centerRegisterForm();

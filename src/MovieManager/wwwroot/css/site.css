@@ -5,65 +5,121 @@ a.navbar-brand {
     white-space: normal;
     text-align: center;
     word-break: break-all;
+    font-size: 30px;
+    font-weight: 100;
+}
 
+#navbar {
+    background-color: #f6f5f3;
+}
+
+#logoPart {
+    color: #D09379;
+    font-weight: 400;
+    font-size: 25px;
+}
+
+#blurDiv {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 50;
+    background-image: url('http://getwallpapers.com/wallpaper/full/a/6/5/1109764-new-inception-wallpaper-1920x1080.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+    transition-duration:2s;
+}
+
+.loginInput {
+    width: 200px !important;
+}
+
+button {
+    background-color: #775d51;
+}
+
+.blured {
+    filter: blur(10px);
+}
+
+#loginError {
+    position: absolute;
+    display: none;
+    left: 50%;
+    top: 80%;
+}
+
+#loginErrorInnerDiv {
+    position: relative;
+    left: -50%;
+    font-size: medium;
+    font-weight: 500
 }
 
 .inner-container {
     position: relative;
 }
 
+#registerCard {
+    background-color: #f3f1ef;
+    opacity: 0.85;
+    z-index: 100;
+}
+
+#registerForm {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
-}
-
-
-@media (max-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-    
-  #logo {
-      font-size: 10px !important;
-    }
-    a.navbar-brand {
-    background-color:red;
-    }
+    font-size: 14px;
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
 
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+    font-size: 1rem;
+    line-height: inherit;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
     /* Margin bottom by footer height */
     margin-bottom: 40px;
+    background-color: #ffffff;
+    background-image: url('http://getwallpapers.com/wallpaper/full/a/6/5/1109764-new-inception-wallpaper-1920x1080.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+}
 
+#header {
+    position: absolute;
+    top:0;
+    opacity: 0.95;
+    z-index: 100;
 }
 
 
-.footer {
+#footer {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -72,6 +128,13 @@ body {
     height: 30px;
     line-height: 30px; /* Vertically center the text there */
     font-size: 12px;
-    box-shadow: 0 -3px #888888;
+    background-color: #f6f5f3;
+    box-sizing: content-box;
+    opacity: 0.8;
+    z-index: 100;
 }
 
+#footerContainer {
+    font-size: small;
+    margin-left: 2%;
+}
