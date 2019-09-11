@@ -23,7 +23,7 @@ function centerRegisterForm() {
 
     var emptySpaceHeight = window.innerHeight - headerHeight - footerHeight;
 
-    var x = (emptySpaceHeight - registerFormHeight) / 2.4;
+    var x = (emptySpaceHeight - registerFormHeight) / 2 + 10;
 
     document.getElementById("registerForm").style.marginTop = x + "px";
 
@@ -33,9 +33,15 @@ function centerRegisterForm() {
 
 // Blue background image when focus on register form
 setInterval(() => {
-    if (document.getElementById("registerForm").contains(document.activeElement))
+    if (document.getElementById("registerForm").contains(document.activeElement)) {
         $("#blurDiv").addClass("blured");
-    else $("#blurDiv").removeClass("blured");
+        document.getElementById("registerCard").style.opacity = 0.92;
+    }
+    else 
+    {
+        $("#blurDiv").removeClass("blured");
+        document.getElementById("registerCard").style.opacity = 0.85;
+    }
 }, 50);
 
 
