@@ -41,8 +41,9 @@ button {
 }
 
 .blured {
-    filter: blur(10px);
+    filter: blur(12px);
 }
+
 
 #loginError {
     position: absolute;
@@ -66,8 +67,17 @@ button {
     background-color: #f3f1ef;
     opacity: 0.85;
     z-index: 100;
-    transition-duration:2s;
+    transition-duration: 0.5s;
 }
+
+.highShadow {
+    box-shadow: 0 0 25px rgba(0, 0, 0, .5);
+}
+
+.lowShadow {
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+}
+
 
 
 
@@ -112,9 +122,10 @@ body {
 
 #header {
     position: absolute;
-    top:0;
-    opacity: 0.95;
+    top: 0;
+    opacity: 0.90;
     z-index: 100;
+    transition-duration: 2s;
 }
 
 
@@ -129,7 +140,7 @@ body {
     font-size: 12px;
     background-color: #f6f5f3;
     box-sizing: content-box;
-    opacity: 0.8;
+    opacity: 0.85;
     z-index: 100;
 }
 

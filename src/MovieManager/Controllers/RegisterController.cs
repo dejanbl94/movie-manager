@@ -43,7 +43,7 @@ namespace MovieManager.Controllers
 
                     if (result.Succeeded)
                     {
-                        TempData["Success"] = "You successfully registered!";
+                        TempData["Success"] = $"Welcome {model.Username}, you successfully registered!";
                         return RedirectToAction(nameof(HomeController.Index), "Home");
                     }
                     else

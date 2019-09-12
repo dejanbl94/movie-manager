@@ -4,8 +4,7 @@
 
 @model LoginViewModel
 @inject SignInManager<AppUser> SignInManager
-@inject  UserManager<AppUser> UserManager
-
+@inject UserManager<AppUser> UserManager
 <!----><!DOCTYPE html>
 <html>
 <head>
@@ -27,21 +26,14 @@
 </head>
 <body>
     <header>
-        <div style="width:100%" class="align-middle shadow-sm">
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 ">
-                <div class="d-flex justify-content-between w-100 mx-4 ml-6 align-middle">
-                    <div class="" id="logo ">
-                        <a class="navbar-brand " style="font-size:30px; font-weight:100;" asp-area="">
-                            <span style="color:#D09379; font-weight:400; font-size:25px;">movie</span>manager
-                        </a>
+        <div style="width:100%; background-color:#f6f5f3; opacity:0.92" class="align-middle shadow-sm">
+            <div class="d-flex justify-content-end mx-4 ml-6 align-middle">
+                <form class="form-inline m-2 float-right" asp-controller="Home" asp-action="Logout" method="post">
+                    <div style="float:right; padding-left:20px;">
+                        <button class="btn btn-dark m-sm-1 btn-sm">Log out, @this.User.Identity.Name</button>
                     </div>
-                    <form class="form-inline" asp-controller="Home" asp-action="Logout" method="post">
-                        <div style="float:left; padding-left:20px;">
-                            <button type="submit" class="btn btn-dark m-sm-1 btn-sm" style="background-color:#684B3E !important">Log out, @this.User.Identity.Name</button>
-                        </div>
-                    </form>
-                </div>
-            </nav>
+                </form>
+            </div>
         </div>
     </header>
 
@@ -52,9 +44,9 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2019 - MovieManager - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer id="footer" class="border-top footer text-muted">
+        <div id="footerContainer" class="container">
+            &copy; 2019 - MovieManager | <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
 

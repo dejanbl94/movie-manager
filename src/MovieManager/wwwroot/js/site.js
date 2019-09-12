@@ -31,19 +31,33 @@ function centerRegisterForm() {
 
 }
 
-// Blue background image when focus on register form
+
+// Blur background image when focus on register form
+
 setInterval(() => {
     if (document.getElementById("registerForm").contains(document.activeElement)) {
         $("#blurDiv").addClass("blured");
-        document.getElementById("registerCard").style.opacity = 0.92;
+        document.getElementById("registerCard").style.opacity = 0.99;
+        $("#registerCard").addClass("highShadow");
+        $("#registerCard").removeClass("lowShadow");
     }
-    else 
-    {
+    else {
         $("#blurDiv").removeClass("blured");
-        document.getElementById("registerCard").style.opacity = 0.85;
+        document.getElementById("registerCard").style.opacity = 0.87;
+        $("#registerCard").addClass("lowShadow");
+        $("#registerCard").removeClass("highShadow");
     }
 }, 50);
 
+
+setInterval(() => {
+    if (document.getElementById("header").contains(document.activeElement)) {
+        document.getElementById("header").style.opacity = 0.99;
+    }
+    else {
+        document.getElementById("header").style.opacity = 0.85;
+    }
+}, 50);
 
 centerRegisterForm();
 
