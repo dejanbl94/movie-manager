@@ -10,6 +10,6 @@ namespace DataLayer.Models
         public string CategoryName { get; set; }
 
         // Relationships.
-        public ICollection<FilmCategory> FilmsLinke { get; set; }
+        public ICollection<FilmCategory> FilmsLinks { get; set; }
     }
 }
