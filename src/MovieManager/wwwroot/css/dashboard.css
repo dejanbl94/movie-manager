@@ -1,0 +1,119 @@
+﻿@import url("https://fonts.googleapis.com/css?family=Inconsolata:700");
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-size: 13px;
+    background-image: url('http://getwallpapers.com/wallpaper/full/a/6/5/1109764-new-inception-wallpaper-1920x1080.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.menu {
+    height: 100vh;
+    width: 200px;
+    background-color: rgb(30, 33, 37);
+    /* border-right:5px solid black; */
+    opacity: 60%;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+ }
+
+.menu ul li {
+    padding: 15px;
+    position: relative;
+    background-color: rgb(30, 33, 37);
+    border-bottom: 1px solid rgba(100, 100, 100, 0.9);
+    border-top: 1px solid rgba(100, 100, 100, 0.9);
+}
+
+.menu ul li:hover {
+    background: #30302e;
+    cursor: pointer;
+}
+
+.menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+.menu ul li span {
+    margin-right: 10px;
+}
+
+
+#searchBox {
+    width: 100%;
+    background: black;
+    box-sizing: border-box;
+    padding: 1rem;
+    opacity: 100%;
+}
+
+#searchBox > form {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, .8);
+}
+
+#searchBox .fa-search {
+    color: rgba(255, 255, 255, .8);
+    cursor: pointer;
+    font-size: 20px;
+    margin-bottom: 2px;
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, .8);
+    font-size: 12px;
+    font-weight: bolder;
+    padding-left: 10px;
+}
+
+#search {
+    outline: 0;
+    border: 0;
+    background: transparent;
+    color: rgba(255, 255, 255, .8);
+
+}
+
+.spacing-search {
+    height: 12px;
+    background: black;
+    opacity: 100;
+}
+
+#logout {
+    padding-top:15px;
+    padding-left: 170px;
+ 
+}
+
+#logout button {
+    border-style: none;
+    background: transparent;
+    
+}
+
+#logout .fa-sign-out {
+    font-size: 22px;
+    transform: rotate(180deg);
+    opacity: 100;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+}

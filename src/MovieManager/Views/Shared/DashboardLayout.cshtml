@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DashboardLayout</title>
+    <link rel="stylesheet" type="text/css" href="~/css/dashboard.css" />
+    <script src="https://use.fontawesome.com/351b56303f.js"></script>
+    <link rel="stylesheet" href="fontawesome.css" />
+</head>
+
+<body>
+    <div class="menu">
+        <div id="searchBox">
+            <form action="" autocomplete="on">
+                <input id="search" name="search" type="text" placeholder="Search...">
+                <i class="fa fa-search"></i>
+            </form>
+        </div>
+        <ul>
+            <li><a href="#"><span class="fa fa-fire"></span> Popular</a></li>
+            <li><a href="#"><span class="fa fa-star"></span> Greatest</a></li>
+            <li><a href="#"><span class="fa fa-calendar"></span> Recent</a></li>
+        </ul>
+        <div class="spacing-search">&nbsp;</div>
+        <ul>
+            <li><a href="#"><span class="fa fa-heart"></span> Favorites</a></li>
+            <li><a href="#"><span class="fa fa-eye"></span> Seen</a></li>
+        </ul>
+        <form asp-controller="Home" asp-action="Logout" method="post">
+            <div id="logout">
+                <button class="fa fa-sign-out"></button>
+            </div>
+        </form>
+   
+
+    </div>
+    <main>
+        @RenderBody()
+    </main>
+</body>
+
+</html>

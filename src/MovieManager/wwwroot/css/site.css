@@ -7,6 +7,11 @@ a.navbar-brand {
     word-break: break-all;
     font-size: 30px;
     font-weight: 100;
+    height: 30px;
+}
+
+.header {
+
 }
 
 #navbar {
@@ -118,6 +123,7 @@ body {
     background-image: url('http://getwallpapers.com/wallpaper/full/a/6/5/1109764-new-inception-wallpaper-1920x1080.jpg');
     background-size: cover;
     background-repeat: repeat;
+
 }
 
 #header {
@@ -126,6 +132,7 @@ body {
     opacity: 0.90;
     z-index: 100;
     transition-duration: 2s;
+    height:10px;
 }
 
 

@@ -78,11 +78,12 @@ namespace MovieManager.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                ViewData["Layout"] = "~/Views/Shared/LoggedInLayout.cshtml";
+                ViewData["Layout"] = "~/Views/Shared/DashboardLayout.cshtml";
                 return View();
             }
             return View("~/Views/Home/Index.cshtml");
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
