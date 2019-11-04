@@ -3,7 +3,6 @@
 
 @model LoginViewModel
 @inject SignInManager<AppUser> SignInManager
-
 <!----><!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +23,8 @@
     <link rel="stylesheet" href="~/css/site.css" type="text/css" />
 </head>
 <body>
-    <header class="align-middle shadow-sm w-100" id="header">
+    <div class="omotac">
+        <header class="align-middle shadow-sm w-100" id="header">
             <nav id="navbar" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow">
                 <div class="d-flex justify-content-between w-100 mx-4 ml-6 align-middle">
                     <div id="logo ">
@@ -32,48 +32,57 @@
                             <span id="logoPart">movie</span>manager
                         </a>
                     </div>
-                    <form class="form-inline" asp-area="" asp-controller="Home" asp-action="Login">
-                            <input asp-for="LoginEmail" class="loginInput form-control form-control-sm m-sm-1" placeholder="Email" autocomplete="off" required />
-                            <input asp-for="LoginPassword" class="loginInput form-control form-control-sm m-sm-1"  placeholder="Password" autocomplete="off" required />
-                        <button class="btn btn-dark m-sm-1 btn-sm">Sign in</button>
+                    <form asp-area="" asp-controller="Home" asp-action="Login">
+                        <div class="d-inline">
+                            <input asp-for="LoginEmail" class="loginInput form-control form-control-sm  " placeholder="Email" autocomplete="off" required />
+                            <input asp-for="LoginPassword" class="loginInput form-control form-control-sm " placeholder="Password" autocomplete="off" required />
+                            <button class="btn btn-dark m-sm-1 btn-sm">Sign in</button>
+                        </div>
+                        <div class="d-block">
+                            <input type="checkbox" id="checkbox" value="" />
+                            <label for="checkbox">Remember me</label>
+                        </div>
+                     
+                        
                     </form>
                 </div>
             </nav>
-    </header>
-    <div class="container">
-        @{
-            await Html.RenderPartialAsync("../PartialViews/_RegisterPartial");
-        }
-    </div>
+        </header>
+        <div class="container">
+            @{
+                await Html.RenderPartialAsync("../PartialViews/_RegisterPartial");
+            }
+        </div>
 
-    <!--Div showing all errors-->
-    @if (TempData["Login"] != null)
-    {
-        <div id="loginError">
-            <div id="loginErrorInnerDiv">
-                <div class="text-danger">
-                    <span asp-validation-for="LoginEmail">
-                    </span>
-                    <span asp-validation-for="LoginPassword">
-                    </span>
-                    @TempData["Login"].ToString()
+        <!--Div showing all errors-->
+        @if (TempData["Login"] != null)
+        {
+            <div id="loginError">
+                <div id="loginErrorInnerDiv">
+                    <div class="text-danger">
+                        <span asp-validation-for="LoginEmail">
+                        </span>
+                        <span asp-validation-for="LoginPassword">
+                        </span>
+                        @TempData["Login"].ToString()
+                    </div>
                 </div>
             </div>
-        </div>
-    }
+        }
 
-    <div class="">
-        <partial name="_CookieConsentPartial" />
-        <main role="main">
-            @RenderBody()
-        </main>
+        <div class="">
+            <partial name="_CookieConsentPartial" />
+            <main role="main">
+                @RenderBody()
+            </main>
+        </div>
+
+        <footer id="footer" class="border-top footer text-muted">
+            <div id="footerContainer" class="container">
+                &copy; 2019 - MovieManager | <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>
     </div>
-
-    <footer id="footer" class="border-top footer text-muted">
-        <div id="footerContainer" class="container">
-            &copy; 2019 - MovieManager | <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>

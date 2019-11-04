@@ -5,17 +5,31 @@ a.navbar-brand {
     white-space: normal;
     text-align: center;
     word-break: break-all;
-    font-size: 30px;
+    font-size: 39px;
     font-weight: 100;
-    height: 30px;
+    height: 10px;
+    padding:0;
+
 }
 
-.header {
+.form-control {
+display:inline !important;
+}
 
+/*login checkbox*/
+input[type=checkbox] {
+    transform: scale(0.9);
+    vertical-align:middle;
+    cursor:pointer;
+}
+
+label {
+    font-size:12px;
 }
 
 #navbar {
     background-color: #f6f5f3;
+    padding-top: 20px;
 }
 
 #logoPart {
@@ -36,6 +50,7 @@ a.navbar-brand {
     background-repeat: repeat;
     transition-duration:1.5s;
 }
+
 
 .loginInput {
     width: 200px !important;
@@ -123,6 +138,7 @@ body {
     background-image: url('http://getwallpapers.com/wallpaper/full/a/6/5/1109764-new-inception-wallpaper-1920x1080.jpg');
     background-size: cover;
     background-repeat: repeat;
+
 
 }
 

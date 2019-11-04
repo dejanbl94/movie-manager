@@ -10,6 +10,7 @@ body {
     background-image: url('http://getwallpapers.com/wallpaper/full/a/6/5/1109764-new-inception-wallpaper-1920x1080.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+
 }
 
 * {
@@ -20,33 +21,61 @@ body {
 .menu {
     height: 100vh;
     width: 200px;
-    background-color: rgb(30, 33, 37);
+    background-color: #f6f5f3;
     /* border-right:5px solid black; */
-    opacity: 60%;
+    opacity: 0.7;
+    display: flex;
+    flex-direction: column;
+}
+
+#upperNavPart {
+    flex-grow: 1;
+}
+
+#bottomNav li {
+    border-top: 1px solid rgba(200, 200, 200, 0.9);
+}
+
+#bottomNav button {
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    padding: 15px 0;
+    cursor: pointer;
+    font-weight: bolder;
 }
 
 .menu ul {
     list-style: none;
     margin: 0;
- }
+}
 
-.menu ul li {
+.menu li a span {
+    color: #484b4e;
+}
+
+#upperNavPart ul li {
     padding: 15px;
-    position: relative;
-    background-color: rgb(30, 33, 37);
-    border-bottom: 1px solid rgba(100, 100, 100, 0.9);
-    border-top: 1px solid rgba(100, 100, 100, 0.9);
+    border-bottom: 1px solid rgba(200, 200, 200, 0.9);
 }
 
 .menu ul li:hover {
-    background: #30302e;
+    background: #f1a9a0;
     cursor: pointer;
 }
 
 .menu ul li a {
-    color: #fff;
+    color: #484b4e;
     text-decoration: none;
     font-family: sans-serif;
+}
+
+.menu ul li:hover a {
+    color: black;
+}
+
+.menu ul li:hover span {
+    color: black;
 }
 
 .menu ul li span {
@@ -55,32 +84,29 @@ body {
 
 
 #searchBox {
-    width: 100%;
-    background: black;
+    background: #d24d57;
     box-sizing: border-box;
     padding: 1rem;
-    opacity: 100%;
 }
 
-#searchBox > form {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, .8);
-}
+    #searchBox > form {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
 
-#searchBox .fa-search {
-    color: rgba(255, 255, 255, .8);
-    cursor: pointer;
-    font-size: 20px;
-    margin-bottom: 2px;
-}
+    #searchBox .fa-search {
+        color: rgba(255, 255, 255, .8);
+        cursor: pointer;
+        font-size: 15px;
+        margin-bottom: 2px;
+    }
 
 ::placeholder {
     color: rgba(255, 255, 255, .8);
     font-size: 12px;
     font-weight: bolder;
-    padding-left: 10px;
+    padding-left: 0px;
 }
 
 #search {
@@ -88,32 +114,26 @@ body {
     border: 0;
     background: transparent;
     color: rgba(255, 255, 255, .8);
-
 }
 
 .spacing-search {
     height: 12px;
-    background: black;
+    background: #d24d57;
     opacity: 100;
 }
 
 #logout {
-    padding-top:15px;
-    padding-left: 170px;
- 
+    vertical-align: bottom;
 }
 
-#logout button {
-    border-style: none;
-    background: transparent;
-    
-}
+    #logout button {
+        border-style: none;
+        background: transparent;
+    }
 
-#logout .fa-sign-out {
-    font-size: 22px;
-    transform: rotate(180deg);
-    opacity: 100;
-    color: white;
-    font-weight: bolder;
+#bottomNav button {
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
     cursor: pointer;
 }

@@ -50,6 +50,7 @@ setInterval(() => {
 }, 50);
 
 
+
 setInterval(() => {
     if (document.getElementById("header").contains(document.activeElement)) {
         document.getElementById("header").style.opacity = 0.99;
